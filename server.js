@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(cors())
 
 
-app.get('/', (req, res) => {res.send( d.users)})
+app.get('/', (req, res) => {res.send( 'it is working!')})
 
 app.post('/signin', signin.handleSignIn(db, bcrypt))
 
@@ -37,7 +37,8 @@ app.put('/image', image.handleImage(db))
 
 app.post('/imageurl', image.handleApiCall)
 
+const PORT = (process.env.PORT || 5000)
 
-app.listen(5000, () => {
-    console.log('app is running on port 5000')
+app.listen(PORT, () => {
+    console.log(`app is running on port ${PORT}`)
 });
